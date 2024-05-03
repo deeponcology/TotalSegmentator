@@ -77,7 +77,7 @@ def predict():
                 [
                 "TotalSegmentator", 
                 "-i", inputDir.name +"/" +filename,
-                "-o", outDir.name,
+                "-o", outDir.name+"/" +"output",
                 "--fast",
                 
                 "--ml"]
@@ -86,7 +86,7 @@ def predict():
         # retFile = files[0]
         print("output files",files)
         retFile = files
-        return send_file(outDir.name +"/"+retFile, mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
+        return send_file(outDir.name+"/" +"output", mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
        
  
 if __name__ == "__main__":
