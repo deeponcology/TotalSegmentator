@@ -73,11 +73,12 @@ def predict():
             # nnUNet_predict -i $inputDir -o $outDir --task_name $1 --model 2d --disable_tta
         # 
             # subprocess.check_output("/home/predict.sh", shell=True)
-            return subprocess.check_output(
+            subprocess.check_output(
                 [
                 "TotalSegmentator", 
                 "-i", inputDir.name +"/" +filename,
                 "-o", "segmentation",
+                "--fast",
                 
                 "--ml"]
                 )
