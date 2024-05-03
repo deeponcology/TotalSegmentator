@@ -12,9 +12,13 @@ RUN pip install --upgrade pip
 
 COPY . /app
 RUN pip install /app
-
+RUN pip install flask flask_cors
 RUN python /app/totalsegmentator/download_pretrained_weights.py
 
+RUN cd /app
+WORKDIR /app
+ENV FLASK_APP=App.py
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 # expose not needed if using -p
 # If using only expose and not -p then will not work
 # EXPOSE 80
