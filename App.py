@@ -78,7 +78,7 @@ def predict():
                 "TotalSegmentator", 
                 "-i", inputDir.name +"/" +filename,
                 "-o", outDir.name+"/" +"output",
-                "--fast",
+                # "--fast",
                 
                 "--ml"]
                 )
