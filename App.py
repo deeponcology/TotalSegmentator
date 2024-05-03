@@ -83,7 +83,9 @@ def predict():
                 "--ml"]
                 )
         files = os.listdir(outDir.name)
-        retFile = files[0]
+        # retFile = files[0]
+        print("output files",files)
+        retFile = files
         return send_file(outDir.name +"/"+retFile, mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
        
  
