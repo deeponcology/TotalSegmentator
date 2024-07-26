@@ -13,7 +13,8 @@ RUN pip install --upgrade pip
 COPY . /app
 RUN pip install /app
 RUN pip install flask flask_cors
-RUN python /app/totalsegmentator/download_pretrained_weights.py
+RUN pip install git+https://github.com/wasserth/TotalSegmentator.git
+# RUN python /app/totalsegmentator/download_pretrained_weights.py
 
 RUN cd /app
 WORKDIR /app
