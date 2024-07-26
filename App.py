@@ -44,8 +44,8 @@ def allowed_file(filename):
 def home(path):
   return render_template(path)
 
-@app.route('/predict/totalseg', methods=['POST'])
-def predict():
+@app.route('/predict/totalseg/<path:path>', methods=['POST'])
+def predict(path):
 
     
     
@@ -77,16 +77,16 @@ def predict():
                 [
                 "TotalSegmentator", 
                 "-i", inputDir.name +"/" +filename,
-                "-o", outDir.name+"/" +"output",
+                "-o", outDir.name+"/" +"output.nii.gz",
                 # "--fast",
-                
+                "--task",path
                 "--ml"]
                 )
         files = os.listdir(outDir.name)
         # retFile = files[0]
         print("output files",files)
         retFile = files
-        return send_file(outDir.name+"/" +"output.nii", mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
+        return send_file(outDir.name+"/" +"output.nii.gz", mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
        
  
 if __name__ == "__main__":
