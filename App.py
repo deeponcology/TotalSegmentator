@@ -79,7 +79,7 @@ def predict(path):
                 "-i", inputDir.name +"/" +filename,
                 "-o", outDir.name+"/" +"output.nii.gz",
                 # "--fast",
-                "--task",path
+                "--task",path,
                 "--ml"]
                 )
         files = os.listdir(outDir.name)
